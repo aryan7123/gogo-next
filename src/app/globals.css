@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 * {
   margin: 0;
   padding: 0;
@@ -19,4 +18,16 @@ html, body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.form-card {
+  box-shadow: 0 1px 15px rgba(0, 0, 0, .04), 0 1px 6px rgba(0, 0, 0, .04);
+  border-radius: .75rem;
+}
+
+.image-side {
+  background-image: url(/images/balloon.ce8d76b9.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
 }
