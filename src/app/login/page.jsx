@@ -3,8 +3,15 @@ import React from 'react'
 const page = () => {
   return (
     <>
-        <main className='w-full h-full fixed-background'>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, deserunt quod! Laboriosam voluptatibus sint saepe repudiandae, accusamus excepturi ipsum recusandae amet voluptatem fugiat earum magni incidunt ut quia. Rem, placeat quas. Enim ullam beatae unde, at facere adipisci modi dolorum, totam officiis architecto accusamus eos hic tempore libero consequuntur itaque accusantium saepe expedita dolores illum nihil, similique dolor aperiam delectus? Ea cum quis ducimus id maxime dolorem maiores eligendi. Voluptatibus, rerum soluta! A, corporis illo! Quo doloremque rem minima accusamus error molestias, natus aspernatur atque nisi nam dolore facere fugit quos dolor optio at magnam voluptatem quas ullam consectetur. Voluptas!
+        <main className='w-full h-full flex items-center fixed-background'>
+            <div className='max-w-sm md:max-w-6xl flex md:flex-row flex-col items-start justify-center mx-auto bg-white form-card'>
+                <div className='w-full md:w-[40%] md:px-12 md:py-16 p-6 h-[30vh] md:h-[70vh] image-side'>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis molestiae, animi doloremque asperiores sapiente expedita iusto doloribus! Aliquam, nam facere!
+                </div>
+                <div className='w-full md:w-[60%] form-side'>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, atque rem debitis sequi ad maxime pariatur sint in, officiis illo, commodi earum hic fugit omnis? Tempora, quasi sapiente ipsam, harum, adipisci deleniti quam corrupti fuga ea tenetur dolorum. Aperiam tempore consequuntur dolor deleniti nisi explicabo doloremque quidem eum magnam, iusto dolorum placeat suscipit consectetur neque tempora laboriosam. Voluptatum illum in tenetur voluptate ratione, voluptas fugiat esse earum doloremque. Quo necessitatibus excepturi hic dicta in doloremque nobis? Rem, quibusdam. Qui magnam est ex facere? Tempore ad doloribus suscipit magni, repellat dignissimos quas eaque reiciendis nobis ea incidunt cupiditate perferendis in enim!
+                </div>
+            </div>
         </main>
     </>
   )
