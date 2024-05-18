@@ -3,8 +3,13 @@
 import React from "react";
 import Link from "next/link";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
+import { useGlobalContext } from "@/context/context";
 
 const page = () => {
+  const {
+    showPassword,
+    handleShowPassword
+  } = useGlobalContext();
   return (
     <>
       <main className="w-full h-full flex items-center justify-center fixed-background">
@@ -49,12 +54,19 @@ const page = () => {
                 >
                   Password
                 </label>
-                <input
-                  type="password"
-                  name="email"
-                  className="border border-[#d7d7d7] p-1.5 text-sm text-[#3a3a3a] outline-none"
-                  autoComplete="off"
-                />
+                <div className="border border-[#d7d7d7] p-1.5 flex items-center justify-between w-[inherit]">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    autoComplete="off"
+                    name="password"
+                    className="w-full text-sm text-[#3a3a3a] outline-none"
+                  />
+                  {showPassword ? (
+                    <FaRegEyeSlash className="cursor-pointer" size={20} onClick={handleShowPassword}/>
+                  ) : (
+                    <FaRegEye className="cursor-pointer" size={20} onClick={handleShowPassword} />
+                  )}
+                </div>
               </div>
               <div className="flex items-center justify-between w-[inherit] mt-6">
                 <Link
