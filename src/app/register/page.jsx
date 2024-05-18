@@ -1,8 +1,17 @@
+'use client';
+
 import React from "react";
 import Link from "next/link";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
+import { useGlobalContext } from "@/context/context";
 
 const page = () => {
+  const {
+    showPassword,
+    showConfirmPassword,
+    handleShowPassword,
+    handleShowConfirmPassword,
+  } = useGlobalContext();
   return (
     <>
       <main className="w-full h-full flex items-center justify-center fixed-background">
@@ -62,8 +71,8 @@ const page = () => {
                   Password
                 </label>
                 <input
-                  type="password"
-                  name="email"
+                  type={showPassword ? "text" : "password"}
+                  name="password"
                   autoComplete="off"
                   className="border border-[#d7d7d7] p-1.5 text-sm text-[#3a3a3a] outline-none"
                 />
@@ -76,7 +85,7 @@ const page = () => {
                   Confirm Password
                 </label>
                 <input
-                  type="password"
+                  type={showConfirmPassword ? "text" : "password"}
                   autoComplete="off"
                   name="confirmPassword"
                   className="border border-[#d7d7d7] p-1.5 text-sm text-[#3a3a3a] outline-none"
