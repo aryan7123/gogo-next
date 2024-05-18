@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React from "react";
 import Link from "next/link";
@@ -70,12 +70,19 @@ const page = () => {
                 >
                   Password
                 </label>
-                <input
-                  type={showPassword ? "text" : "password"}
-                  name="password"
-                  autoComplete="off"
-                  className="border border-[#d7d7d7] p-1.5 text-sm text-[#3a3a3a] outline-none"
-                />
+                <div className="border border-[#d7d7d7] p-1.5 flex items-center justify-between w-[inherit]">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    autoComplete="off"
+                    name="password"
+                    className="w-full text-sm text-[#3a3a3a] outline-none"
+                  />
+                  {showPassword ? (
+                    <FaRegEyeSlash className="cursor-pointer" size={20} onClick={handleShowPassword}/>
+                  ) : (
+                    <FaRegEye className="cursor-pointer" size={20} onClick={handleShowPassword} />
+                  )}
+                </div>
               </div>
               <div className="flex flex-col gap-1.5">
                 <label
@@ -84,12 +91,19 @@ const page = () => {
                 >
                   Confirm Password
                 </label>
-                <input
-                  type={showConfirmPassword ? "text" : "password"}
-                  autoComplete="off"
-                  name="confirmPassword"
-                  className="border border-[#d7d7d7] p-1.5 text-sm text-[#3a3a3a] outline-none"
-                />
+                <div className="border border-[#d7d7d7] p-1.5 flex items-center justify-between w-[inherit]">
+                  <input
+                    type={showConfirmPassword ? "text" : "password"}
+                    autoComplete="off"
+                    name="confirmPassword"
+                    className="w-full text-sm text-[#3a3a3a] outline-none"
+                  />
+                  {showConfirmPassword ? (
+                    <FaRegEyeSlash className="cursor-pointer" size={20} onClick={handleShowConfirmPassword}/>
+                  ) : (
+                    <FaRegEye className="cursor-pointer" size={20} onClick={handleShowConfirmPassword} />
+                  )}
+                </div>
               </div>
               <div className="w-[inherit] flex justify-end mt-6">
                 <button
