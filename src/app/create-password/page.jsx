@@ -2,8 +2,16 @@
 
 import React from 'react'
 import Link from 'next/link'
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
+import { useGlobalContext } from "@/context/context";
 
 const page = () => {
+  const {
+    showPassword,
+    showConfirmPassword,
+    handleShowPassword,
+    handleShowConfirmPassword,
+  } = useGlobalContext();
   return (
     <>
         <main className="w-full h-full flex items-center justify-center fixed-background">
@@ -34,12 +42,19 @@ const page = () => {
                 >
                   Password
                 </label>
-                <input
-                  type="password"
-                  name="email"
-                  autoComplete="off"
-                  className="border border-[#d7d7d7] p-1.5 text-sm text-[#3a3a3a] outline-none"
-                />
+                <div className="border border-[#d7d7d7] p-1.5 flex items-center justify-between w-[inherit]">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    autoComplete="off"
+                    name="password"
+                    className="w-full text-sm text-[#3a3a3a] outline-none"
+                  />
+                  {showPassword ? (
+                    <FaRegEyeSlash className="cursor-pointer" size={20} onClick={handleShowPassword}/>
+                  ) : (
+                    <FaRegEye className="cursor-pointer" size={20} onClick={handleShowPassword} />
+                  )}
+                </div>
               </div>
               <div className="flex flex-col gap-1.5">
                 <label
@@ -48,12 +63,19 @@ const page = () => {
                 >
                   Confirm Password
                 </label>
-                <input
-                  type="password"
-                  autoComplete="off"
-                  name="confirmPassword"
-                  className="border border-[#d7d7d7] p-1.5 text-sm text-[#3a3a3a] outline-none"
-                />
+                <div className="border border-[#d7d7d7] p-1.5 flex items-center justify-between w-[inherit]">
+                  <input
+                    type={showConfirmPassword ? "text" : "password"}
+                    autoComplete="off"
+                    name="confirmPassword"
+                    className="w-full text-sm text-[#3a3a3a] outline-none"
+                  />
+                  {showConfirmPassword ? (
+                    <FaRegEyeSlash className="cursor-pointer" size={20} onClick={handleShowConfirmPassword}/>
+                  ) : (
+                    <FaRegEye className="cursor-pointer" size={20} onClick={handleShowConfirmPassword} />
+                  )}
+                </div>
               </div>
               <div className="w-[inherit] flex justify-end mt-6">
                 <button
