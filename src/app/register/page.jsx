@@ -1,9 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { useGlobalContext } from "@/context/context";
+import axios from "axios";
 
 const page = () => {
   const {
@@ -12,6 +13,30 @@ const page = () => {
     handleShowPassword,
     handleShowConfirmPassword,
   } = useGlobalContext();
+
+  const initialState = {
+    fullName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  }
+
+  const [userData, setUserData] = useState(initialState);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUserData({ ...userData, [name]: value });
+  }
+
+  const handleRegistration = async() => {
+    try {
+      const res = await axios.post("/api/login", userData);
+      console.log(res);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   return (
     <>
       <main className="w-full h-full flex items-center justify-center fixed-background">
@@ -45,6 +70,7 @@ const page = () => {
                 <input
                   type="text"
                   name="fullName"
+                  onChange={handleChange}
                   className="border border-[#d7d7d7] p-1.5 text-sm text-[#3a3a3a] outline-none"
                   autoComplete="off"
                 />
@@ -58,6 +84,7 @@ const page = () => {
                 </label>
                 <input
                   type="email"
+                  onChange={handleChange}
                   name="email"
                   className="border border-[#d7d7d7] p-1.5 text-sm text-[#3a3a3a] outline-none"
                   autoComplete="off"
@@ -74,6 +101,7 @@ const page = () => {
                   <input
                     type={showPassword ? "text" : "password"}
                     autoComplete="off"
+                    onChange={handleChange}
                     name="password"
                     className="w-full text-sm text-[#3a3a3a] outline-none"
                   />
@@ -95,6 +123,7 @@ const page = () => {
                   <input
                     type={showConfirmPassword ? "text" : "password"}
                     autoComplete="off"
+                    onChange={handleChange}
                     name="confirmPassword"
                     className="w-full text-sm text-[#3a3a3a] outline-none"
                   />
@@ -107,6 +136,7 @@ const page = () => {
               </div>
               <div className="w-[inherit] flex justify-end mt-6">
                 <button
+                  onClick={handleRegistration}
                   type="button"
                   className="bg-[#922c88] text-white w-[120px] text-sm font-medium rounded-[50px] py-2.5 shadow-sm transition-colors hover:bg-[#73236b]"
                 >
