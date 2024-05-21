@@ -23,7 +23,8 @@ const userModel = new mongoose.Schema({
     },
     isVerified: {
         type: Boolean,
-        required: false
+        required: false,
+        default: false
     },
 });
 
