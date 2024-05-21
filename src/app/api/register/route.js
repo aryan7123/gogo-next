@@ -9,9 +9,13 @@ export const POST = async(request) => {
     try {
         const req = await request.json();
         const { fullName, email, password, confirmPassword } = req;
+        const regex = '/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/';
 
         if(!fullName || !email || !password || !confirmPassword) {
             return NextResponse.json({ message: "All Fields are required" });
+        }
+        else if(regex.match(email)) {
+            return NextResponse.json({ message: "Invalid Email Address" });
         }
         else if(await User.findOne({ email: email })) {
             return NextResponse.json({ message: "Email Address already exists" });
