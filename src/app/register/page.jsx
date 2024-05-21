@@ -30,7 +30,7 @@ const page = () => {
 
   const handleRegistration = async() => {
     try {
-      const res = await axios.post("/api/login", userData);
+      const res = await axios.post("/api/register", userData);
       console.log(res);
     } catch (error) {
       console.error(error);
